@@ -105,3 +105,15 @@ equalsBtn.addEventListener('click', () => {
         numberLength = 0;
     }
 })
+
+// sign button
+const signBtn = document.querySelector('#sign');
+
+signBtn.addEventListener('click', () => {
+    console.log(displayValue)
+    if(displayValue !== '0') {
+        oppositeValue = String(Number(displayValue) * -1);
+        displayValue = oppositeValue;
+        display.textContent = oppositeValue;
+    }
+})

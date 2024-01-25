@@ -13,6 +13,7 @@ main {
     flex-wrap: wrap;
     padding: 5px;
     gap: 3px;
+    background-color: black;
 }
 
 .row {
@@ -22,6 +23,7 @@ main {
 }
 
 #display {
+    background-color: rgb(197, 195, 195);
     flex-direction: row-reverse;
     align-items: center;
     font-size: 60px;
@@ -33,5 +35,16 @@ main {
 
 button {
     flex: 1;
+    font-size: 30px;
+}
+
+.operator {
+    background-color: orange;
+}
+
+#clear,
+#sign,
+#percent {
+    background-color: rgb(74, 74, 158);
 }
 
