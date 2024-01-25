@@ -43,12 +43,15 @@ clear.addEventListener('click', () => {
     firstNumber = 0;
     secondNumber = 0;
     operator = 0;
-    display.textContent = '';
+    display.textContent = '0';
 });
 
 buttons.forEach( button => {
     button.addEventListener('click', () => {
         if(numberLength !== 12) {
+            if(numberLength == 0) {
+                display.textContent = '';
+            }
             display.textContent += button.value;
             numberLength++;
         }
