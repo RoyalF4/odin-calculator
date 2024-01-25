@@ -1,0 +1,35 @@
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 3px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+#display {
+    flex-direction: row-reverse;
+    align-items: center;
+    font-size: 60px;
+    border: 1px solid black;
+    padding: 0 10px;
+}
+
+button {
+    flex: 1;
+}
+
