@@ -48,6 +48,7 @@ clear.addEventListener('click', () => {
     secondNumber = '';
     operator = '';
     display.textContent = '0';
+    hasDecimal = false;
 });
 
 // operand buttons
@@ -86,6 +87,7 @@ operators.forEach( operatorBtn => {
                 displayValue = '0';
                 display.textContent = '0';
                 numberLength = 0;
+                hasDecimal = false;
             }
     })
 })
@@ -115,5 +117,17 @@ signBtn.addEventListener('click', () => {
         oppositeValue = String(Number(displayValue) * -1);
         displayValue = oppositeValue;
         display.textContent = oppositeValue;
+    }
+})
+
+// decimal button
+const decimalBtn = document.querySelector('.decimal');
+let hasDecimal = false;
+
+decimalBtn.addEventListener('click', () => {
+    if(!hasDecimal) {
+        displayValue += '.';
+        display.textContent = displayValue;
+        hasDecimal = true;
     }
 })
