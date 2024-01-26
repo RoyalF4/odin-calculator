@@ -70,7 +70,6 @@ const operators = document.querySelectorAll('.operator');
 
 operators.forEach( operatorBtn => {
     operatorBtn.addEventListener('click', () => {
-        console.log(operatorBtn)
             if(operator !== '') {
                 secondNumber = displayValue;
                 let result = operate(operator, firstNumber, secondNumber)
@@ -81,7 +80,6 @@ operators.forEach( operatorBtn => {
                 numberLength = 0;
             }
             else {
-                console.log(displayValue)
                 firstNumber = displayValue;
                 operator = operatorBtn.value;
                 displayValue = '0';
@@ -112,7 +110,6 @@ equalsBtn.addEventListener('click', () => {
 const signBtn = document.querySelector('#sign');
 
 signBtn.addEventListener('click', () => {
-    console.log(displayValue)
     if(displayValue !== '0') {
         oppositeValue = String(Number(displayValue) * -1);
         displayValue = oppositeValue;
@@ -126,8 +123,38 @@ let hasDecimal = false;
 
 decimalBtn.addEventListener('click', () => {
     if(!hasDecimal) {
-        displayValue += '.';
-        display.textContent = displayValue;
+        console.log(display.textContent)
+        if(display.textContent == '0') {
+            displayValue = '0.';
+            display.textContent = displayValue;
+            numberLength = 2;
+        }
+        else {
+            displayValue += '.';
+            display.textContent = displayValue;
+            numberLength++;
+        }
         hasDecimal = true;
+    }
+})
+
+// backspace 
+const backspaceBtn = document.querySelector('.backspace');
+
+backspaceBtn.addEventListener('click', () => {
+    if(displayValue.length == 1) {
+        displayValue = '0';
+        display.textContent = '0';
+        numberLength = 0;
+    }
+    if(displayValue.length > 1) {
+        newValue = displayValue.slice(0, displayValue.length - 1);
+        removedValue = displayValue.slice(displayValue.length - 1)
+        if(removedValue == '.') {
+            hasDecimal = false;
+        }
+        displayValue = newValue;
+        display.textContent = newValue;
+        numberLength--;
     }
 })
